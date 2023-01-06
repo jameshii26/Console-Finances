@@ -87,14 +87,43 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+let total = 0;
+let change = 0;
+let net = 0;
+let netArray = [];
+let tot_chg = 0;
+let avr_chg = 0;
+let grt_inc = 0;
+let grt_dec = 0;
+
+// Finding total amount of Profit/Losses over the entire period 
+for (let i = 0; i < finances.length; i++) {
+    //total += finances[i][1];
+    for (let ii = 0; ii < finances[i].length; ii++){
+        if(typeof finances[i][ii] !== 'string'){
+            total += finances[i][ii];
+            change = finances[i][ii] - net;
+            net = finances[i][ii];
+            netArray.push(change);
+        }
+    }
+}
+for(let i =0; i < netArray.length; i++){
+    tot_chg += netArray[i];
+}
+
+avr_chg = Math.round((tot_chg / 86) * 100) /100;
 
 
-// Report Output
+// Finding average change
+// for (let i = 0; i < finances.length;)
+
+// Report output
 console.log("Financial Analysis");
 console.log("---------------------------");
 console.log("Total Months : " + finances.length);
-console.log("Total: ");
-console.log("Average Change: ");
-console.log("Greatest Increase in Profits: ");
-console.log("Greatest Decrease in Profits: ");
+console.log("Total: $" + total);
+console.log("Average Change: $" + avr_chg);
+console.log("Greatest Increase in Profits: " + grt_inc);
+console.log("Greatest Decrease in Profits: " + grt_dec);
 
