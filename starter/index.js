@@ -87,36 +87,45 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+// Set the variable value to start
 let total = 0;
 let change = 0;
 let net = 0;
 let netArray = [];
 let tot_chg = 0;
 let avr_chg = 0;
-let grt_inc = 0;
-let grt_dec = 0;
+let highest = ["",0];
+let lowest = ["",0];
 
 // Finding total amount of Profit/Losses over the entire period 
 for (let i = 0; i < finances.length; i++) {
-    //total += finances[i][1];
+    total += finances[i][1];
+    // Finding the change of Profit/Loses
     for (let ii = 0; ii < finances[i].length; ii++){
-        if(typeof finances[i][ii] !== 'string'){
-            total += finances[i][ii];
+        if(typeof finances[i][ii] == 'number'){
             change = finances[i][ii] - net;
             net = finances[i][ii];
             netArray.push(change);
+
+// Compare & find the highest increase month & value
+            if(change > highest[1]){
+                highest = [finances[i][0], finances[i][1]]
+            }
+// Compare & find the highest decrease month & value
+            if(change < lowest[1]){
+                lowest = [finances[i][0], finances[i][1]]
+            }
         }
     }
 }
+
+// Calculate the total change
 for(let i =0; i < netArray.length; i++){
     tot_chg += netArray[i];
 }
 
+// Getting the average change
 avr_chg = Math.round((tot_chg / 86) * 100) /100;
-
-
-// Finding average change
-// for (let i = 0; i < finances.length;)
 
 // Report output
 console.log("Financial Analysis");
@@ -124,6 +133,5 @@ console.log("---------------------------");
 console.log("Total Months : " + finances.length);
 console.log("Total: $" + total);
 console.log("Average Change: $" + avr_chg);
-console.log("Greatest Increase in Profits: " + grt_inc);
-console.log("Greatest Decrease in Profits: " + grt_dec);
-
+console.log("Greatest Increase in Profits: " + highest[0] + " ($" + highest[1]+")");
+console.log("Greatest Decrease in Profits: " + lowest[0] + " ($" + lowest[1]+")");
