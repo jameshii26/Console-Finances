@@ -5,6 +5,7 @@ This is the Console Finances for Module 4 Challenge
 This is the Financial Analysis Report which sorted a group of data by using the logic coding with JavaScript. 
 
 # Deployed link
+https://jameshii26.github.io/Console-Finances/
 
 # Repo link source code
 https://github.com/jameshii26/Console-Finances
