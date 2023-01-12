@@ -11,7 +11,7 @@ https://jameshii26.github.io/Console-Finances/
 https://github.com/jameshii26/Console-Finances
 
 ## Screen shot
-![alt text](/screenshot.PNG)
+![alt text](/Images/screenshot.PNG)
 
 # Table content
 
